@@ -15,8 +15,12 @@ def radix_sort(to_be_sorted):
         digit = number_as_a_string[-1]
         digit = int(digit)
         digits[digit].append(number)
-        
 
-    return digits
+    # adding numbers from digits as they appear
+    being_sorted = []
+    for numeral in digits:
+        being_sorted.extend(numeral)
+
+    return being_sorted
 
 print(radix_sort([100, 201, 4278]))
