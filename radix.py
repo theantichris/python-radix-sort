@@ -7,8 +7,16 @@ def radix_sort(to_be_sorted):
     being_sorted = to_be_sorted[:]
 
     # create buckets for each digit
-    digits = [[] for digit in range(10)]
+    digits = [[] for i in range(10)]
+
+    # placing a number into a bucket based on LSD
+    for number in being_sorted:
+        number_as_a_string = str(number)
+        digit = number_as_a_string[-1]
+        digit = int(digit)
+        digits[digit].append(number)
+        
 
     return digits
 
-print(radix_sort([1]))
+print(radix_sort([100, 201, 4278]))
