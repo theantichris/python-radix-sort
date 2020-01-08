@@ -18,7 +18,12 @@ def radix_sort(to_be_sorted):
         # placing a number into a bucket based on LSD
         for number in being_sorted:
             number_as_a_string = str(number)
-            digit = number_as_a_string[index]
+
+            try:
+                digit = number_as_a_string[index]
+            except IndexError:
+                digit = 0 # if number doesn't have this digit it is 0
+
             digit = int(digit)
             digits[digit].append(number)
 
@@ -30,4 +35,5 @@ def radix_sort(to_be_sorted):
     return being_sorted
 
 my_list = [234, 3981, 1, 48276, 23]
+print(my_list)
 print(radix_sort(my_list))
